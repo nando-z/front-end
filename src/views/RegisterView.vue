@@ -1,13 +1,13 @@
 <script>
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
-const title = ref('Register')
+
 </script>
 <template>
     <div class="flex flex-col items-center justify-center h-screen">
         <div class="card">
             <div class="card-body">
-                <h2 class="card-title">{{ title }}</h2>
+                <h2 class="card-title">Register</h2>
                 <form class="space-y-5" @submit.prevent="">
                     <div class="form-control">
                         <label class="label">

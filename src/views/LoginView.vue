@@ -1,11 +1,15 @@
 <script>
-import {
-    ref
-} from 'vue'
-import {
-    RouterLink
-} from 'vue-router'
-const title = ref('Login')
+import { ref, defineComponent } from 'vue'
+import { RouterLink } from 'vue-router'
+
+export default defineComponent({
+    setup() {
+        const title = ref('Login')
+        return {
+            title,
+        }
+    },
+})
 </script>
 <template>
     <div class="flex flex-col items-center justify-center h-screen">
@@ -17,13 +21,13 @@ const title = ref('Login')
                         <label class="label">
                             <span class="label-text">Email</span>
                         </label>
-                        <input type="email" placeholder="email" class="input input-bordered" />
+                        <input type="email" placeholder="email" class="input input-bordered" required />
                     </div>
                     <div class="form-control">
                         <label class="label">
                             <span class="label-text">Password</span>
                         </label>
-                        <input type="password" placeholder="password" class="input input-bordered" />
+                        <input type="password" placeholder="password" class="input input-bordered" required />
                     </div>
                     <div class="form-control mt-6">
                         <button class="btn btn-primary">Login</button>
