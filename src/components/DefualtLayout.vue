@@ -1,7 +1,7 @@
 <template>
     <div class="min-h-screen flex flex-col">
         <!-- Navigation -->
-        <header class="bg-base-200 shadow-sm">
+        <header class="bg-gray-900-200 shadow-sm">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <nav class="navbar">
                     <div class="flex-1">
@@ -60,7 +60,7 @@
                             </svg>
                         </label>
                         <ul tabindex="0"
-                            class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                            class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-gray-900 rounded-box w-52">
                             <li>
                                 <RouterLink :to="{ name: 'home' }">Home</RouterLink>
                             </li>
@@ -85,7 +85,7 @@
         </main>
 
         <!-- Footer -->
-        <footer class="footer footer-center p-4 bg-base-300 text-base-content">
+        <footer class="footer footer-center p-4 bg-gray-900 text-base-content">
             <aside>
                 <p>© 2024 PhotoApp - All rights reserved</p>
             </aside>
@@ -96,13 +96,3 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 </script>
-
-<style>
-.router-link-active:not(.btn) {
-    @apply bg-base-300 rounded-lg;
-}
-
-.navbar .active {
-    @apply bg-primary/20;
-}
-</style>

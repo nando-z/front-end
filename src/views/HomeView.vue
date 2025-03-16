@@ -14,7 +14,7 @@ onMounted(() => {
       reader.onload = (e) => {
         previewImage.value = e.target.result
         selectedFile.value = file
-        imageLabel.value = file.name
+
       }
       reader.readAsDataURL(file)
     }
@@ -40,7 +40,7 @@ const cancelUpload = () => {
       </p>
     </div>
 
-    <div class="w-full mb-4 max-w-xl bg-base-100 rounded-2xl shadow-xl p-8 transition-all duration-300">
+    <div class="w-full mb-4 max-w-xl bg-base-200 rounded-2xl shadow-xl p-8 transition-all duration-300">
       <form @submit.prevent="uploadImage" class="space-y-6">
         <!-- File Upload Section -->
         <div class="space-y-4">
@@ -67,7 +67,7 @@ const cancelUpload = () => {
           </div>
 
           <!-- Image Label Input -->
-          <div class="form-control">
+          <div class="form-control flex flex-col space-y-5">
             <label class="label">
               <span class="label-text text-lg">Image Description</span>
             </label>

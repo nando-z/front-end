@@ -1,3 +1,11 @@
+<script setup>
+import { ref } from 'vue';
+
+const title = ref('title')
+const description = ref('description')
+
+</script>
+
 <!-- image card component -->
 <template>
     <div class="card compact bg-base-300 shadow-xl">
