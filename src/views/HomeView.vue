@@ -1,6 +1,8 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
+import axiosClient from '@/axios'
+
 const selectedFile = ref(null)
 const previewImage = ref(null)
 const imageInput = ref(null)
@@ -14,7 +16,7 @@ onMounted(() => {
       reader.onload = (e) => {
         previewImage.value = e.target.result
         selectedFile.value = file
-
+        imageLabel.value = file.name
       }
       reader.readAsDataURL(file)
     }
@@ -27,13 +29,41 @@ const cancelUpload = () => {
   imageInput.value.value = ''
   imageLabel.value = ''
 }
+
+const uploadImage = async () => {
+  if (!selectedFile.value) return
+
+  const formData = new FormData()
+  formData.append('image', selectedFile.value)
+  formData.append('label', data.value.label)
+
+}
+
+const submit = () => {
+  const formData = new FormData()
+  formData.append('image', selectedFile.value)
+  formData.append('label', data.value.label)
+
+  axiosClient.post('/api/images', formData)
+    .then(response => {
+      console.log(response.data);
+
+    })
+}
+
+
+const data = ref({
+  label: '',
+  image: null
+})
+
 </script>
 
 <template>
   <div class="flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
       <h1 class="text-4xl sm:text-5xl font-bold text-primary mb-4">
-        Welcome to My Galleryg
+        Welcome to My Gallery
       </h1>
       <p class="text-lg text-base-content/80">
         Share your favorite moments with the world
@@ -71,7 +101,8 @@ const cancelUpload = () => {
             <label class="label">
               <span class="label-text text-lg">Image Description</span>
             </label>
-            <input type="text" class="input input-bordered text-lg" placeholder="Enter a description..." />
+            <input type="text" class="input input-bordered text-lg" placeholder="Enter a description..."
+              v-model="data.label" />
           </div>
 
           <!-- Preview Image -->
@@ -93,7 +124,7 @@ const cancelUpload = () => {
           <button type="button" @click="cancelUpload" class="btn btn-ghost" :disabled="!selectedFile">
             Cancel
           </button>
-          <button type="submit" class="btn btn-primary px-8" :disabled="!selectedFile">
+          <button @click="submit" type="submit" class="btn btn-primary px-8" :disabled="!selectedFile">
             Upload
           </button>
         </div>

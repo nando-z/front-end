@@ -1,11 +1,11 @@
 <template>
     <div class="min-h-screen flex flex-col">
         <!-- Navigation -->
-        <header class="bg-gray-900-200 shadow-sm">
+        <header class="bg-white/10 shadow-sm">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <nav class="navbar">
                     <div class="flex-1">
-                        <RouterLink :to="{ name: 'home' }" class="btn btn-ghost normal-case text-xl text-primary">
+                        <RouterLink :to="{ name: 'home' }" class="btn btn-ghost normal-case text-xl text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -85,7 +85,7 @@
         </main>
 
         <!-- Footer -->
-        <footer class="footer footer-center p-4 bg-gray-900 text-base-content">
+        <footer class="footer footer-center p-4 bg-base-100 text-base-content">
             <aside>
                 <p>© 2024 PhotoApp - All rights reserved</p>
             </aside>
